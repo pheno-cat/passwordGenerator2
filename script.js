@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-var char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercaseCharacters = "abcdefghijklmnopqrstuvwxyz";
 var num = "1234567890";
 var special = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
