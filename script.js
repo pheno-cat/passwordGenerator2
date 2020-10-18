@@ -11,12 +11,50 @@ var special = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  var newPassword = "";
+  var passwordCharset = "";
 
   passwordText.value = password;
 
-}
+  var passwordLengthInput = prompt("How many characters would you like your password to have?");
+    if (Number(passwordLengthInput < 8) | Number(passwordLengthInput > 128) | isNaN(passwordLengthInput)) {
+      alert("Whoa there! Please enter a number between 8 and 128.");
+      return;
+    }
 
+  var lowercaseCharactersInput = confirm("Would you like lower case characters in your password?");
+    if (lowercaseCharactersInput) {
+      password += lowercaseCharacters;
+    }
 
+  var uppercaseCharactersInput = confirm("Would you like upper case characters in your password?");
+    if (uppercaseCharactersInput) {
+      password += uppercaseCharacters;
+    }
+
+  var numInput = confirm("Would you like numbers in your password?");
+    if (numInput) {
+      password += num;
+    }
+
+  var specialInput = confirm("Would you like special characters in your password?");
+    if (specialInput) {
+      password += special;
+    }
+
+    if (passwordCharset === "") {
+      alert("Please select at least one type of character you would like to include!");
+   }
+      
+    if (Number(passwordLengthInput >= 8) && Number(passwordLengthInput <= 128)) {
+          for (var i = 0; i < passwordLengthInput; i++) {
+              newPassword += passwordCharset.charAt(Math.floor(Math.random() * passwordCharset.length));
+          };
+          localStorage.setItem("password", newPassword);
+          let newPasswordStr = localStorage.getItem("password");
+          passwordTextarea.textContent = newPasswordStr;
+      };
+  };
 
 
 
@@ -25,7 +63,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-  var 
+   
 
 
   // let passwordTextarea = document.querySelector("#password");
